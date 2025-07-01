@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
+@plugin "daisyui";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-color: #00bba7;
+  --brand-color-dark: #009689;
+  --brand-color-extradark: #005f5a;
+  --brand-color-light: #00d5be;
+  --brand-color-extralight: #cbfbf1;
 }
-
+html,
+body {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  font-family: var(--font-brand-text);
+}
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
   }
 }
+@theme inline {
+  --shadow-input: 0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 0px 0px rgba(25, 28, 33, 0.02),
+    0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+}
+.border-thin {
+  border-width: 0.5px;
+  border-color: rgb(134, 134, 134);
+}
+.border-brand {
+  border-color: var(--brand-color);
+}
+.bg-brand,
+.bg-brand-hover:hover {
+  background-color: var(--brand-color);
+}
+.bg-brand-light,
+.bg-brand-light-hover:hover {
+  background-color: var(--brand-color-light);
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-brand-dark,
+.bg-brand-dark-hover:hover {
+  background-color: var(--brand-color-dark);
+}
+
+.bg-brand-extralight,
+.bg-brand-extralight-hover:hover {
+  background-color: var(--brand-color-extralight);
+}
+
+.text-brand {
+  color: var(--brand-color);
+}
+.text-brand-dark {
+  color: var(--brand-color-dark);
+}
+
+.section {
+  @apply p-4 flex flex-col w-full scroll-mt-20 gap-4;
+}
+.section-title {
+  @apply text-center text-4xl font-semibold capitalize;
+  color: var(--brand-color);
+  font-family: var(--font-brand-title);
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+.font-brand-title {
+  font-family: var(--font-brand-title);
+}
+.font-brand-text {
+  font-family: var(--font-brand-text);
+}
+
+.nav-item {
+  @apply py-2 cursor-pointer font-medium tracking-wider capitalize px-3;
+  font-family: var(--font-brand-title);
+}
+.nav-item-not-active {
+  @apply text-gray-700 dark:text-gray-300;
+}
+.nav-item-active {
+  @apply font-bold;
+  background-color: var(--brand-color-extralight);
+  color: var(--brand-color-extradark);
+}
+.link-btn {
+  @apply flex justify-center  items-center gap-1 p-2 px-4 rounded-full active:scale-95 transform transition-all duration-300 ease-in-out shadow-sm;
+  border-width: 0.5px;
+}
+.social-link-btn {
+  @apply sm:p-2.5;
+}
+.error-div {
+  @apply flex flex-col items-center min-h-screen p-6;
+}
+.error-msg {
+  @apply text-red-600 text-center;
+}
+.error-btn {
+  @apply btn btn-sm tracking-wide btn-error font-sans;
+}
+
+.header {
+  @apply fixed z-10 top-0 w-full flex justify-between items-center p-4 px-5 bg-gradient-to-b;
+}
+.header-after-scroll {
+  @apply shadow-sm from-teal-100/50 to-teal-100/50 dark:from-gray-500/50 backdrop-blur-md dark:to-gray-500/50;
+}
+.header-before-scroll {
+  @apply from-teal-100/50 dark:from-base-100 to-transparent;
+}
+.input-style {
+  @apply w-full cursor-text rounded-sm bg-white p-1 px-1.5 outline-none dark:bg-gray-800;
+  border-width: 0.5px;
+}
+.err-msg {
+  @apply text-xs tracking-wide text-red-500 dark:text-red-400 ml-1;
+}
+.projects-container {
+  @apply flex justify-center flex-wrap gap-4 max-w-4xl mx-auto min-w-full sm:min-w-3/5 md:min-w-2/3 lg:min-w-3/5 2xl:min-w-5/12;
 }
