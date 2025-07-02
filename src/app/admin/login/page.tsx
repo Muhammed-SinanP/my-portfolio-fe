@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import DarkModeBtn from "@/components/buttons/DarkModeBtn";
 import GoToHomeBtn from "@/components/buttons/GoToHomeBtn";
+import Image from "next/image";
 
 export default function AdminLoginPage() {
   const dispatch = useAppDispatch();
@@ -80,7 +81,7 @@ export default function AdminLoginPage() {
             onClick={googleSignIn}
             className="btn btn-lg btn-outline border-thin text-teal-500 hover:bg-teal-400 hover:text-white my-1 flex w-full items-center justify-center gap-2"
           >
-            <img src={googleIcon} alt="google icon" className="h-5" />
+            <Image src={googleIcon} alt="google icon" className="h-5" />
             <span className="text-lg font-medium">Continue with Google</span>
           </button>
         </div>

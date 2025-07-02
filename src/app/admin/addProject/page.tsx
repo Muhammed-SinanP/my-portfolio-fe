@@ -83,7 +83,7 @@ const AddProjectPage = () => {
     if (featureFields.length === 0) {
       appendFeature("");
     }
-  }, []);
+  }, [featureFields.length, appendFeature]);
 
   return (
     <div className="p-4 pb-20">

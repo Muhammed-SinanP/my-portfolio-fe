@@ -33,7 +33,7 @@ const HeroSection = async () => {
           Hi<span className="text-2xl -mr-0.5">👋</span>,
         </div>
         <div>
-          I'm<span className="text-brand"> {profile?.fullName}</span>
+          I&apos;m<span className="text-brand"> {profile?.fullName}</span>
         </div>
       </div>
       <h1 className="text-4xl sm:text-5xl text-center font-bold text-brand capitalize font-brand-title">
