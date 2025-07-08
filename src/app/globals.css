@@ -9,6 +9,7 @@
   --brand-color-extradark: #005f5a;
   --brand-color-light: #00d5be;
   --brand-color-extralight: #cbfbf1;
+  --brand-color-lightest:#f9fffe;
 }
 html,
 body {
@@ -16,6 +17,7 @@ body {
   scrollbar-width: thin;
   font-family: var(--font-brand-text);
 }
+
 @theme inline {
   --animate-aurora: aurora 60s linear infinite;
   @keyframes aurora {
@@ -56,6 +58,11 @@ body {
 .bg-brand-extralight,
 .bg-brand-extralight-hover:hover {
   background-color: var(--brand-color-extralight);
+}
+
+.bg-brand-lightest,
+.bg-brand-lightest-hover:hover{
+  background-color: var(--brand-color-lightest);
 }
 
 .text-brand {
@@ -123,7 +130,7 @@ body {
   @apply from-teal-100/50 dark:from-base-100 to-transparent;
 }
 .input-style {
-  @apply w-full cursor-text rounded-sm bg-white p-1 px-1.5 outline-none dark:bg-gray-800;
+  @apply w-full cursor-text rounded-sm bg-white p-1.5 outline-none dark:bg-gray-800;
   border-width: 0.5px;
 }
 .err-msg {

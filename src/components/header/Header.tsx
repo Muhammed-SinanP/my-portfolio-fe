@@ -86,7 +86,7 @@ const Header = () => {
         <RiMenu3Fill
           onClick={() => setSidebarOpen(true)}
           size={35}
-          className="text-brand block md:hidden"
+          className="text-brand block md:hidden cursor-pointer"
         />
       </div>
 

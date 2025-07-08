@@ -15,7 +15,7 @@ const Sidebar = ({
   return (
     <div
       id="sidebar"
-      className={`h-screen md:hidden shadow-md shadow-gray-800 dark:shadow-black w-2/3 fixed top-0 right-0 z-30 bg-teal-50 dark:bg-base-100 transform transition-transform duration-500 ease-in-out ${
+      className={`h-screen md:hidden shadow-md shadow-gray-800 dark:shadow-black w-2/3 fixed top-0 right-0 z-30 bg-[#f9fffe] dark:bg-base-300 transform transition-transform duration-500 ease-in-out ${
         sidebarOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >

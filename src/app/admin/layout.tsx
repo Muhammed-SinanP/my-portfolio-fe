@@ -41,10 +41,12 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   }, [isAdminLoggedIn, checking, pathname]);
 
   if (checking) {
-    return <div className="p-4">Checking authentication...</div>;
+    return <div className="p-4 min-h-screen">Checking authentication...</div>;
   }
 
-  return <div className="font-sans">{children}</div>;
+  return (
+    <div className="min-h-screen">{children}</div>
+  );
 };
 
 export default AdminLayout;

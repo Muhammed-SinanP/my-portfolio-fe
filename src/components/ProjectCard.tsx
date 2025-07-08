@@ -20,7 +20,7 @@ const ProjectCard = ({
   return (
     <div
       onClick={() => router.push(`/project/${projectId}`)}
-      className={`${style} border-thin border-gray-200 cursor-pointer group rounded-lg shadow-sm shadow-black/60 hover:shadow-teal-500 sm:scale-95 sm:active:scale-95 active:shadow-sm hover:scale-100 transform transition-all ease-in-out duration-400 relative overflow-hidden`}
+      className={`${style} border-thin group border-gray-200 cursor-pointer group rounded-lg shadow-sm shadow-black/60 hover:shadow-teal-500 sm:scale-95 sm:active:scale-95 active:shadow-sm hover:scale-100 transform transition-all ease-in-out duration-400 relative overflow-hidden`}
     >
       <Image
         src={thumbnail}
@@ -30,7 +30,7 @@ const ProjectCard = ({
         className="absolute object-top object-cover saturate-100 group-hover:saturate-150 "
       />
 
-      <div className="absolute bottom-4 w-full flex flex-col gap-2 items-center">
+      <div className="absolute flex sm:hidden group-hover:flex bottom-4 w-full flex-col gap-2 items-center">
         <h3 className="px-2.5 shadow-sm shadow-black/60 py-0.5 bg-white dark:bg-base-100 rounded-md uppercase font-brand-title font-semibold tracking-wide">
           {title}
         </h3>

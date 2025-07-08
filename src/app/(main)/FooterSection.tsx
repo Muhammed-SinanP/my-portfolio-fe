@@ -9,11 +9,11 @@ const FooterSection = () => {
         <div className="border-[0.1px] text-gray-400 max-w-4xl mx-auto"></div>
       </div>
       <div className="py-4">
-        <p className="text-xs text-center text-gray-400">
+        <p className="text-xs text-center text-gray-400 select-none">
           &copy; 2025{" "}
           <span
             onClick={() => router.push("/admin")}
-            className="cursor-pointer"
+            className="cursor-pointer select-none"
           >
             Muhammed Sinan P
           </span>

@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
   };
 
   function googleSignIn() {
-    window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/admin/googleSignIn`;
+    window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/googleSignIn`;
   }
 
   useEffect(() => {
@@ -66,23 +66,23 @@ export default function AdminLoginPage() {
   });
 
   return (
-    <div className="min-h-screen relative font-sans flex flex-col gap-4 items-center justify-center bg-gray-100 dark:bg-base-100 p-4">
-      <div className="absolute right-4 top-4 flex items-center gap-4">
+    <div className="min-h-screen flex flex-col justify-between items-center">
+      <div className="w-full flex justify-end p-6 pb-0">
         <DarkModeBtn />
-        <GoToHomeBtn />
       </div>
-      <div className="bg-white dark:bg-gray-950 w-80 sm:w-96 p-6 rounded-lg shadow-md -mt-10">
-        <h1 className="text-2xl text-center mb-4 font-semibold text-purple-700">
+
+      <div className="bg-white dark:bg-gray-950 w-80 sm:w-96 p-6 rounded-lg shadow-md">
+        <h1 className="text-2xl text-center mb-4  text-purple-700">
           Admin Login
         </h1>
 
         <div className="flex w-full items-center justify-center text-center">
           <button
             onClick={googleSignIn}
-            className="btn btn-lg btn-outline border-thin text-teal-500 hover:bg-teal-400 hover:text-white my-1 flex w-full items-center justify-center gap-2"
+            className="btn btn-lg btn-outline border-thin bg-gray-50 dark:bg-gray-800 text-teal-500 hover:bg-teal-500 hover:text-white my-1 flex w-full items-center justify-center gap-2"
           >
-            <Image src={googleIcon} alt="google icon" className="h-5" />
-            <span className="text-lg font-medium">Continue with Google</span>
+            <Image src={googleIcon} alt="google icon" width={20} height={20} />
+            <span className="text-lg font-normal ">Continue with Google</span>
           </button>
         </div>
 
@@ -111,11 +111,15 @@ export default function AdminLoginPage() {
 
           <button
             type="submit"
-            className="mt-2 text-base btn btn-lg bg-teal-500 hover:bg-teal-600 text-white"
+            className="mt-2 font-normal text-base btn btn-lg bg-teal-500 hover:bg-teal-600 text-white"
           >
             Submit
           </button>
         </form>
+      </div>
+
+      <div className="w-full flex justify-start p-6 pt-0">
+        <GoToHomeBtn />
       </div>
     </div>
   );
