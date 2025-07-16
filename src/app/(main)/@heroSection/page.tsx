@@ -8,10 +8,29 @@ import { SiLeetcode } from "react-icons/si";
 import { ContainerTextFlip } from "@/components/ui/ContainerTextFlip";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
+import { BiLogoGmail } from "react-icons/bi";
 
 const HeroSection = async () => {
   const profile = await fetchProfile();
-
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  const words = [
+    {
+      text: "Build",
+    },
+    {
+      text: "awesome",
+    },
+    {
+      text: "apps",
+    },
+    {
+      text: "with",
+    },
+    {
+      text: "Aceternity.",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
   return (
     <section
       id="hero-section"
@@ -19,6 +38,7 @@ const HeroSection = async () => {
     >
       <div className="h-14"></div>
       <Spotlight />
+
       <Image
         src={profile?.profilePicture}
         alt="Profile picture"
@@ -49,6 +69,10 @@ const HeroSection = async () => {
         />
         <span className="-ml-2">Developer</span>
       </h1>
+      <p className="text-sm tracking-wide text-gray-500 dark:text-gray-400">
+        From {profile.contact.address.district}, {profile.contact.address.state}
+        , {profile.contact.address.country}
+      </p>
 
       <div className="text-center max-w-3xl">
         <TextGenerateEffect words={profile.intro} />
@@ -63,7 +87,7 @@ const HeroSection = async () => {
         Resume <BsBoxArrowInUpRight size={20} />
       </a>
 
-      <div className="flex flex-col sm:flex-row gap-4 ">
+      <div className="flex flex-col sm:flex-row gap-4">
         <SocialBtn
           title="LinkedIn"
           link={profile.socialLinks.linkedIn}
@@ -85,6 +109,13 @@ const HeroSection = async () => {
           style="hover:bg-yellow-400 text-yellow-400 border-yellow-400 hover:text-black"
           color="bg-yellow-400 text-black"
         />
+        {/* <SocialBtn
+          title="Gmail"
+          link={profile.socialLinks.gmail}
+          icon={<BiLogoGmail size={20} />}
+          style="hover:bg-red-500 text-red-500 border-red-500 hover:text-white"
+          color="bg-red-500 text-white"
+        /> */}
       </div>
     </section>
   );

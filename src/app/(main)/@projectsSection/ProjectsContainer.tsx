@@ -14,30 +14,14 @@ const ProjectsContainer = ({ projects }: { projects: Project[] }) => {
   return (
     <div className="flex flex-col gap-4 items-center">
       <div className="projects-container">
-        {projects.map(
-          (project) =>
-            !project.mini && (
-              <ProjectCard
-                key={project._id}
-                style="h-64 w-full sm:w-sm"
-                projectId={project._id}
-                thumbnail={project.thumbnail}
-                title={project.title}
-                category={project.category}
-                type={project.type}
-              />
-            )
-        )}
-      </div>
-
-      {showMiniProjects && (
-        <div className="projects-container">
-          {projects.map(
+        {projects
+          .sort((a, b) => b.order - a.order)
+          .map(
             (project) =>
-              project.mini && (
+              !project.mini && (
                 <ProjectCard
                   key={project._id}
-                  style="h-56 w-11/12 sm:w-xs"
+                  style="h-64 w-full sm:w-sm"
                   projectId={project._id}
                   thumbnail={project.thumbnail}
                   title={project.title}
@@ -46,6 +30,26 @@ const ProjectsContainer = ({ projects }: { projects: Project[] }) => {
                 />
               )
           )}
+      </div>
+
+      {showMiniProjects && (
+        <div className="projects-container">
+          {projects
+            .sort((a, b) => b.order - a.order)
+            .map(
+              (project) =>
+                project.mini && (
+                  <ProjectCard
+                    key={project._id}
+                    style="h-56 w-11/12 sm:w-xs"
+                    projectId={project._id}
+                    thumbnail={project.thumbnail}
+                    title={project.title}
+                    category={project.category}
+                    type={project.type}
+                  />
+                )
+            )}
         </div>
       )}
 

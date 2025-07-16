@@ -1,3 +1,4 @@
+
 import ContactSection from "./ContactSection";
 import FooterSection from "./FooterSection";
 
@@ -16,6 +17,7 @@ const HomeLayout = ({
 }) => {
   return (
     <div>
+      
       {children}
       {heroSection}
       {aboutSection}

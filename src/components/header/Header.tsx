@@ -11,6 +11,7 @@ import Sidebar from "../Sidebar";
 const Header = () => {
   const [screenHeight, setScreenHeight] = useState<number>(0);
   const activeSection = useActiveSection(allSectionIds);
+  
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   useEffect(() => {

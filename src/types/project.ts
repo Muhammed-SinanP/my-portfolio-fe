@@ -16,4 +16,5 @@ export interface Project {
   type: string;
   mini: string;
   client: string;
+  order:number;
 }

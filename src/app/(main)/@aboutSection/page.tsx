@@ -1,3 +1,4 @@
+import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { fetchProfile } from "@/services/profileService";
 
 const SKILL_ORDER = [
@@ -18,7 +19,9 @@ const AboutSection = async () => {
   return (
     <section id="about-section" className="section">
       <h1 className="section-title">About Me</h1>
-      <p className="max-w-5xl text-center mx-auto">{profile.profileSummary}</p>
+      <div className="max-w-5xl text-center mx-auto">
+        <TextGenerateEffect words={profile.profileSummary} />
+      </div>
 
       <h2 className="capitalize font-brand-title tracking-wide text-xl border-b text-brand text-center">
         Technical skills
