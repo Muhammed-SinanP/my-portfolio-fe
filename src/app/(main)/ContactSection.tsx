@@ -21,7 +21,6 @@ const ContactSection = () => {
   async function sendEmail(data: contactSchemaType) {
     try {
       setLoading(true);
-      console.log(data);
       const response = await axiosInstance({
         method: "POST",
         url: "/user/sendMessage",
@@ -45,7 +44,7 @@ const ContactSection = () => {
         </p>
         <h1 className="section-title">get in touch</h1>
       </div>
-      <p className="text-center max-w-3xl mx-auto tracking-wide">
+      <p className="text-center text-sm max-w-3xl mx-auto tracking-wide">
         Have a question, idea, or opportunity? Use the form below to get in
         touch. I’m open to freelance work, collaboration, and full-time
         opportunities.

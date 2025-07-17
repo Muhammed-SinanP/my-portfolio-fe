@@ -4,6 +4,7 @@ import { exo_2, ovo, gemunu_Libre } from "@/lib/font";
 import { ReduxProvider } from "../redux/provider";
 import { Toaster } from "react-hot-toast";
 import ThemeCheck from "@/components/ThemeCheck";
+import ParticlesBackground from "@/components/ui/ParticlesBackground";
 
 export const metadata: Metadata = {
   title: "Portfolio - Muhammed Sinan P",
@@ -21,13 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body
-        className={`${exo_2.variable} ${ovo.variable} ${gemunu_Libre.variable} bg-[#f9fffe] dark:bg-base-100`}
+        className={`${exo_2.variable} ${ovo.variable} ${gemunu_Libre.variable} `}
       >
         <Toaster position="top-center" />
 
         <ReduxProvider>
           <ThemeCheck />
-          {children}
+          <div className="absolute inset-0 -z-10">
+            <ParticlesBackground />
+          </div>
+          <div className="bg-teal-50/10 dark:bg-base-100/10 relative">
+            {children}
+          </div>
         </ReduxProvider>
       </body>
     </html>
