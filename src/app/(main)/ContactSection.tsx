@@ -31,7 +31,7 @@ const ContactSection = () => {
         reset();
       }
     } catch (err) {
-      console.log(err);
+      toast.error("Failed to send message");
     } finally {
       setLoading(false);
     }
