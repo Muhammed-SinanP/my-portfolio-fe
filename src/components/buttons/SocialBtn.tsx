@@ -1,3 +1,4 @@
+
 const SocialBtn = ({
   link,
   icon,
@@ -12,7 +13,11 @@ const SocialBtn = ({
   color: string;
 }) => {
   return (
-    <div className="relative">
+    <div
+      
+      
+      className="relative"
+    >
       <a
         href={link}
         target="_blank"

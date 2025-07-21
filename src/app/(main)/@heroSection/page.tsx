@@ -1,7 +1,8 @@
+
 import { fetchProfile } from "@/services/profileService";
 import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
-import { BsBoxArrowInUpRight } from "react-icons/bs";
+
 import SocialBtn from "@/components/buttons/SocialBtn";
 import { FaGithub } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -9,6 +10,9 @@ import { ContainerTextFlip } from "@/components/ui/ContainerTextFlip";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { BiLogoGmail } from "react-icons/bi";
+import ResumeBtn from "@/components/buttons/ResumeBtn";
+import * as motion from "motion/react-client";
+
 
 const HeroSection = async () => {
   const profile = await fetchProfile();
@@ -75,17 +79,10 @@ const HeroSection = async () => {
       </p>
 
       <div className="text-center max-w-3xl">
-        <TextGenerateEffect words={profile.intro} />
+        <p>{profile.intro}</p>
       </div>
 
-      <a
-        href={profile.resume}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="link-btn bg-brand border-none bg-brand-dark-hover text-lg text-white"
-      >
-        Resume <BsBoxArrowInUpRight size={20} />
-      </a>
+      <ResumeBtn resume={profile.resume}/>
 
       <div className="flex flex-col sm:flex-row gap-4">
         <SocialBtn

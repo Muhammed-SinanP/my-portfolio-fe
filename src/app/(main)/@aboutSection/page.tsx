@@ -1,6 +1,6 @@
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { fetchProfile } from "@/services/profileService";
-
+import * as motion from "motion/react-client";
 const SKILL_ORDER = [
   "languages",
   "frontend",
@@ -45,13 +45,26 @@ const AboutSection = async () => {
               <p className=" text-lg">{category}</p>
 
               <div className="flex justify-center text-sm flex-wrap gap-2">
-                {values.map((value: string) => (
-                  <p
+                {values.map((value: string, index: number) => (
+                  <motion.p
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{ once: true, amount: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 20,
+                      delay: 0.4 * index,
+                      duration: 0.5,
+                    }}
                     key={value}
                     className="bg-brand-extralight text-black px-2 py-1 rounded-md shadow-sm"
                   >
                     {value}
-                  </p>
+                  </motion.p>
                 ))}
               </div>
             </div>

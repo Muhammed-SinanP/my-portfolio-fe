@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import * as motion from "motion/react-client";
+import { useState } from "react";
 const ProjectCard = ({
   style,
   projectId,
@@ -16,11 +17,34 @@ const ProjectCard = ({
   category: string;
   type?: string;
 }) => {
+  const [activeProjectId, setActiveProjectId] = useState<string>("0");
+  function handleProjectClick(projectId: string) {
+    setActiveProjectId(projectId);
+    router.push(`/project/${projectId}`);
+  }
   const router = useRouter();
   return (
-    <div
-      onClick={() => router.push(`/project/${projectId}`)}
-      className={`${style} bg-white/50 border-thin group border-gray-200 cursor-pointer group rounded-lg shadow-sm shadow-black/60 hover:shadow-teal-500 sm:scale-95 sm:active:scale-95 active:shadow-sm hover:scale-100 transform transition-all ease-in-out duration-400 relative overflow-hidden`}
+    <motion.div
+      initial={{
+        opacity: 0.6,
+        scale: 0.8,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+        boxShadow:
+          activeProjectId === projectId ? "0px" : "0px 0px 4px 0.5px #009689",
+      }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      whileHover={{
+        scale: activeProjectId === projectId ? 1 : 1.1,
+        boxShadow:
+          activeProjectId === projectId ? "0px" : "0px 0px 6px 1px #00bba7",
+      }}
+      onClick={() => handleProjectClick(projectId)}
+      className={`${style} 
+      } sm:scale-95 bg-white/50 group  cursor-pointer group rounded-lg  relative overflow-hidden`}
     >
       <Image
         src={thumbnail}
@@ -30,7 +54,7 @@ const ProjectCard = ({
         className="absolute object-top object-cover saturate-100 group-hover:saturate-150 "
       />
 
-      <div className="absolute flex sm:invisible sm:scale-0 sm:group-hover:scale-95 transform transition-all duration-300 ease-in-out sm:group-hover:visible bottom-4 w-full flex-col gap-2 items-center">
+      <div className="absolute flex sm:invisible sm:scale-0 sm:group-hover:scale-95 transform transition-all duration-500 ease-in-out sm:group-hover:visible bottom-4 w-full flex-col gap-2 items-center">
         <h3 className="px-2.5 shadow-sm shadow-black/60 py-0.5 bg-white dark:bg-base-100 rounded-md font-brand-title font-semibold tracking-wide">
           {title}
         </h3>
@@ -44,7 +68,13 @@ const ProjectCard = ({
           {type}
         </p>
       )}
-    </div>
+
+      {activeProjectId === projectId && (
+        <div className="absolute w-full h-full bg-black/50  top-0 flex justify-center items-center">
+          <span className="loading loading-spinner loading-xl text-brand"></span>
+        </div>
+      )}
+    </motion.div>
   );
 };
 

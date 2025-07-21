@@ -2,6 +2,8 @@
 import { Project } from "@/types/project";
 import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
 const ProjectsContainer = ({ projects }: { projects: Project[] }) => {
   const [showMiniProjects, setShowMiniProjects] = useState<boolean>(false);
@@ -12,7 +14,7 @@ const ProjectsContainer = ({ projects }: { projects: Project[] }) => {
   }
 
   return (
-    <div className="flex flex-col gap-4 items-center">
+    <div className="flex flex-col gap-4 items-center mt-2">
       <div className="projects-container">
         {projects
           .sort((a, b) => b.order - a.order)
@@ -58,6 +60,11 @@ const ProjectsContainer = ({ projects }: { projects: Project[] }) => {
         className="btn btn-sm btn-accent text-white font-normal tracking-wide capitalize"
       >
         {showMiniProjects ? "Hide" : "Show"} mini projects
+        {showMiniProjects ? (
+          <MdKeyboardDoubleArrowUp size={14} />
+        ) : (
+          <MdKeyboardDoubleArrowDown size={14} />
+        )}
       </button>
     </div>
   );

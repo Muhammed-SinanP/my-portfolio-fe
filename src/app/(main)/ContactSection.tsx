@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import * as motion from "motion/react-client";
+import { easeInOut } from "motion/react";
 
 const ContactSection = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -36,6 +38,26 @@ const ContactSection = () => {
       setLoading(false);
     }
   }
+
+  const fadeInUp = {
+    initial: {
+      y: -80,
+      opacity: 0,
+    },
+    whileInView: {
+      y: 0,
+      opacity: 1,
+    },
+    viewport: {
+      once: true,
+      amount: 0.2,
+    },
+    transition: {
+      duration: 0.8,
+      easeInOut,
+    },
+  };
+
   return (
     <section id="contact-section" className="section">
       <div>
@@ -54,7 +76,7 @@ const ContactSection = () => {
           onSubmit={handleSubmit(sendEmail)}
           className="flex flex-col gap-2 max-w-lg mx-auto"
         >
-          <div>
+          <motion.div {...fadeInUp}>
             <label htmlFor="name">Enter your name</label>
             <Input
               id="name"
@@ -64,9 +86,9 @@ const ContactSection = () => {
               disabled={loading}
             />
             {errors.name && <p className="err-msg">{errors.name.message}</p>}
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div {...fadeInUp}>
             <label htmlFor="email">Enter your email</label>
             <Input
               id="email"
@@ -76,9 +98,9 @@ const ContactSection = () => {
               disabled={loading}
             />
             {errors.email && <p className="err-msg">{errors.email.message}</p>}
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div {...fadeInUp}>
             <label htmlFor="topic">Topic</label>
             <Input
               id="topic"
@@ -88,9 +110,9 @@ const ContactSection = () => {
               disabled={loading}
             />
             {errors.topic && <p className="err-msg">{errors.topic.message}</p>}
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col">
+          <motion.div {...fadeInUp} className="flex flex-col">
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
@@ -103,9 +125,9 @@ const ContactSection = () => {
             {errors.message && (
               <p className="err-msg">{errors.message.message}</p>
             )}
-          </div>
+          </motion.div>
 
-          <div className="flex justify-center mt-2">
+          <motion.div {...fadeInUp} className="flex justify-center mt-2">
             <button
               disabled={loading}
               type="submit"
@@ -113,7 +135,7 @@ const ContactSection = () => {
             >
               {loading ? "Sending" : "Send"} Message
             </button>
-          </div>
+          </motion.div>
         </form>
       </div>
     </section>

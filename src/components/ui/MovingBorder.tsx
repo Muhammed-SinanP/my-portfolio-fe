@@ -32,7 +32,7 @@ export function Button({
   return (
     <Component
       className={cn(
-        "relative  overflow-hidden bg-transparent  p-[1.5px] ",
+        "relative  overflow-hidden bg-transparent p-[1.5px]",
         containerClassName
       )}
       style={{
@@ -140,4 +140,3 @@ export const MovingBorder = ({
     </>
   );
 };
-

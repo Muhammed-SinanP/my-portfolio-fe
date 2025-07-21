@@ -7,6 +7,7 @@ import { scrollToSection } from "@/utils/scrollToSection";
 import useActiveSection from "@/hooks/useActiveSection";
 import DarkModeBtn from "../buttons/DarkModeBtn";
 import Sidebar from "../Sidebar";
+import { motion } from "motion/react";
 
 const Header = () => {
   const [screenHeight, setScreenHeight] = useState<number>(0);
@@ -33,7 +34,10 @@ const Header = () => {
   }, [sidebarOpen]);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
       className={`header ${
         screenHeightScrolled ? "header-after-scroll" : "header-before-scroll"
       }`}
@@ -98,7 +102,7 @@ const Header = () => {
         onClick={() => setSidebarOpen(false)}
       ></div>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-    </header>
+    </motion.header>
   );
 };
 

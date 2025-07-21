@@ -56,7 +56,7 @@ const ParticlesBackground = () => {
             distance: 150,
             enable: true,
             opacity: 0.5,
-            width: 0.5,
+            width: 1,
           },
           move: {
             direction: "none",
@@ -72,7 +72,7 @@ const ParticlesBackground = () => {
             density: {
               enable: true,
             },
-            value: 60,
+            value: 65,
           },
           opacity: {
             value: 0.5,
@@ -81,7 +81,7 @@ const ParticlesBackground = () => {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 2 },
+            value: { min: 1, max: 2.5 },
           },
         },
         detectRetina: true,
