@@ -9,6 +9,27 @@ import toast from "react-hot-toast";
 import * as motion from "motion/react-client";
 import { easeInOut } from "motion/react";
 
+const fadeInUpStagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const fadeInUpItem = {
+  hidden: { opacity: 0, y: -80 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: easeInOut,
+    },
+  },
+};
+
 const ContactSection = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const {
@@ -39,25 +60,6 @@ const ContactSection = () => {
     }
   }
 
-  const fadeInUp = {
-    initial: {
-      y: -80,
-      opacity: 0,
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-    },
-    viewport: {
-      once: true,
-      amount: 0.2,
-    },
-    transition: {
-      duration: 0.8,
-      easeInOut,
-    },
-  };
-
   return (
     <section id="contact-section" className="section">
       <div>
@@ -71,12 +73,18 @@ const ContactSection = () => {
         touch. I’m open to freelance work, collaboration, and full-time
         opportunities.
       </p>
-      <div className="">
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInUpStagger}
+      >
         <form
           onSubmit={handleSubmit(sendEmail)}
           className="flex flex-col gap-2 max-w-lg mx-auto"
         >
-          <motion.div {...fadeInUp}>
+          <motion.div variants={fadeInUpItem}>
             <label htmlFor="name">Enter your name</label>
             <Input
               id="name"
@@ -88,7 +96,7 @@ const ContactSection = () => {
             {errors.name && <p className="err-msg">{errors.name.message}</p>}
           </motion.div>
 
-          <motion.div {...fadeInUp}>
+          <motion.div variants={fadeInUpItem}>
             <label htmlFor="email">Enter your email</label>
             <Input
               id="email"
@@ -100,7 +108,7 @@ const ContactSection = () => {
             {errors.email && <p className="err-msg">{errors.email.message}</p>}
           </motion.div>
 
-          <motion.div {...fadeInUp}>
+          <motion.div variants={fadeInUpItem}>
             <label htmlFor="topic">Topic</label>
             <Input
               id="topic"
@@ -112,7 +120,7 @@ const ContactSection = () => {
             {errors.topic && <p className="err-msg">{errors.topic.message}</p>}
           </motion.div>
 
-          <motion.div {...fadeInUp} className="flex flex-col">
+          <motion.div variants={fadeInUpItem} className="flex flex-col">
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
@@ -127,7 +135,10 @@ const ContactSection = () => {
             )}
           </motion.div>
 
-          <motion.div {...fadeInUp} className="flex justify-center mt-2">
+          <motion.div
+            variants={fadeInUpItem}
+            className="flex justify-center mt-2"
+          >
             <button
               disabled={loading}
               type="submit"
@@ -137,7 +148,7 @@ const ContactSection = () => {
             </button>
           </motion.div>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 };
