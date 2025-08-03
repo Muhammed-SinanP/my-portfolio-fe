@@ -1,7 +1,5 @@
 "use client";
-
 import ErrorDiv from "@/components/ErrorDiv";
-
 export default function ErrorAboutSection({
   error,
   reset,

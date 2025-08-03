@@ -24,7 +24,10 @@ const ProjectCard = ({
   }
   const router = useRouter();
   return (
-    <div style={{ perspective: 1000 }}>
+    <div
+      className="w-full flex justify-center items-center"
+      style={{ perspective: 1000 }}
+    >
       <motion.div
         initial={{
           rotateX: 80,
@@ -41,7 +44,7 @@ const ProjectCard = ({
         }}
         onClick={() => handleProjectClick(projectId)}
         className={`${style} 
-       sm:scale-95 bg-white/50 group shadow-sm hover:shadow-md shadow-gray-800 dark:shadow-black cursor-pointer group rounded-lg  relative overflow-hidden`}
+      scale-100 sm:scale-95 bg-white/50 group shadow-sm hover:shadow-md shadow-gray-800 dark:shadow-black cursor-pointer group rounded-lg relative overflow-hidden`}
       >
         <Image
           src={thumbnail}

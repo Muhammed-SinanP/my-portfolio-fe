@@ -9,7 +9,7 @@ const SKILL_ORDER = [
   "cloud",
   "tools",
   "other",
-] as const; // <-- keeps the typings tight
+] as const;
 
 type SkillCategory = (typeof SKILL_ORDER)[number];
 
@@ -32,10 +32,9 @@ const AboutSection = async () => {
       </p>
 
       <div>
-        {/* loop in the fixed order */}
         {SKILL_ORDER.map((category: SkillCategory) => {
           const values = profile.skills?.[category] ?? [];
-          if (!values.length) return null; // skip empty categories
+          if (!values.length) return null;
 
           return (
             <div
