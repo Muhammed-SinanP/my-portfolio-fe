@@ -25,7 +25,7 @@ const ProjectCard = ({
   const router = useRouter();
   return (
     <div
-      className="w-full flex justify-center items-center"
+      className={`${style} flex justify-center`}
       style={{ perspective: 1000 }}
     >
       <motion.div
