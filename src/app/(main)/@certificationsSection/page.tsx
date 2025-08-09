@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { fetchCertifications } from "@/services/certificationService";
 import CertificationsContainer from "./CertificationsContainer";
 

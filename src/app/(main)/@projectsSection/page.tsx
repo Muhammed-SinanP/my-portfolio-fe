@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { fetchAllProjects } from "@/services/projectService";
 import ProjectsContainer from "./ProjectsContainer";
 
