@@ -1,4 +1,3 @@
-
 import { fetchProfile } from "@/services/profileService";
 import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
@@ -12,7 +11,6 @@ import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { BiLogoGmail } from "react-icons/bi";
 import ResumeBtn from "@/components/buttons/ResumeBtn";
 import * as motion from "motion/react-client";
-
 
 const HeroSection = async () => {
   const profile = await fetchProfile();
@@ -82,7 +80,7 @@ const HeroSection = async () => {
         <p>{profile.intro}</p>
       </div>
 
-      <ResumeBtn resume={profile.resume}/>
+      <ResumeBtn resume={profile.resume} />
 
       <div className="flex flex-col sm:flex-row gap-4">
         <SocialBtn

@@ -44,7 +44,7 @@ const Header = () => {
     >
       <h1
         onClick={() => scrollToSection("hero-section")}
-        className="sm:w-1/4 font-brand text-3xl font-bold text-brand text-shadow-sm cursor-pointer"
+        className="sm:w-1/4 font-brand select-none text-3xl font-bold text-brand text-shadow-sm cursor-pointer"
       >
         Sinan
       </h1>

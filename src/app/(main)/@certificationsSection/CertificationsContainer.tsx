@@ -32,13 +32,12 @@ const CertificationsContainer = ({
                 fill
                 className="opacity-60 rounded-lg"
               />
-              <div className="flex flex-col items-start gap-2 p-4 z-10 dark:text-gray-950">
+              <div className="flex flex-col items-center gap-2 p-4 z-10 dark:text-gray-950">
                 <p className="text-lg font-bold">{certification.title}</p>
-                <p className="text-base text-start ">
-                  Issued by:{" "}
-                  <span className="font-semibold">{certification.issuer}</span>
+                <p className="text-base ">
+                  Issued by:{" "}<span className="font-semibold">{certification.issuer}</span>
                 </p>
-                <p className="text-start">{certification.description}</p>
+                <p className="">{certification.description}</p>
                 <div className="flex gap-0">
                   <a
                     href={certification.certificate}
